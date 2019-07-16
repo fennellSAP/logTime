@@ -7,42 +7,60 @@ import datetime
 
 driver = webdriver.Chrome(executable_path=r"C:\Users\I509049\Downloads\chromedriver_win32\chromedriver.exe")
 
-driver.get("https://fiorilaunchpad.sap.com/sites#catsxt-create&/staffingUpdate/20190403")
+def clickSomething(selector):
 
-date = datetime.datetime.now()
-dateFormatted = date.strftime("%a") + "-" + date.strftime("%b") + "-" + date.strftime("%d") + "-" + date.strftime("%Y")
-dateXPath = '//*[@id="__jsview0--catsxtCalendar-' + dateFormatted + '"]'
+    foundElement = False
 
+    while not foundElement:
 
-try:
-    WebDriverWait(driver, 6).until(EC.presence_of_all_elements_located((By.XPATH, dateXPath)))
-    driver.find_element_by_xpath(dateXPath).click()
-except:
-    print("Error finding date cell in calendar")
-
-
-try:
-    WebDriverWait(driver, 6).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="__jsview1--idDetailIconTabBar--header-arrowScrollRight"]')))
-    driver.find_element_by_xpath('//*[@id="__jsview1--idDetailIconTabBar--header-arrowScrollRight"]').click()
-except:
-    print("Error finding arrow over button")
+        try:
+            driver.find_element_by_xpath(selector).click()
+            foundElement = True
+            return
+        
+        except: 
+            time.sleep(.5)
 
 
-try:
-    WebDriverWait(driver, 6).until(EC.presence_of_all_elements_located((By.ID, "__filter3-icon")))
-    driver.find_element_by_id("__filter3-icon").click()
+def findSectionBtn(selector):
 
-except:
-    print("Error finding time entry section button")
+    foundElement = False
+
+    while not foundElement:
+
+        try:
+            driver.find_element_by_id(selector).click()
+            foundElement = True
+            return
+        
+        except: 
+            time.sleep(.5)
 
 
-try:
-    WebDriverWait(driver, 6).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="__jsview1--detailsSaveButton"]')))
-    driver.find_element_by_xpath('//*[@id="__jsview1--detailsSaveButton"]').click()
-    print("Time Has Been Entered")
+def enterTime():
 
-except:
-    print("Error finding save button")
+    driver.get("https://fiorilaunchpad.sap.com/sites#catsxt-create&/staffingUpdate/20190403")
+    date = datetime.datetime.now()
+    dateFormatted = date.strftime("%a") + "-" + date.strftime("%b") + "-" + date.strftime("%d") + "-" + date.strftime("%Y")
+    dateXPath = '//*[@id="__jsview0--catsxtCalendar-' + dateFormatted + '"]'
+
+    # Click date cell
+    clickSomething(dateXPath)
+
+    # Click arrow right
+    clickSomething('//*[@id="__jsview1--idDetailIconTabBar--header-arrowScrollRight"]')
+
+    # Click time entry section
+    findSectionBtn('__filter3-text')
+
+    # Wait for popup to go away
+    time.sleep(2)
+
+    # Click save button
+    clickSomething('//*[@id="__jsview1--detailsSaveButton"]')
+
+enterTime()
+
 
 
 
