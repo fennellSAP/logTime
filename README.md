@@ -5,14 +5,14 @@
 * selenium >= 3.141.0
 * ChromeDriver
 
-### Selenium Install ###
+## Selenium Install ##
 `$ pip install selenium`
 
-### ChromeDriver Install ###
+## ChromeDriver Install ##
 * Go To: http://chromedriver.chromium.org/downloads to download ChromeDriver
 * Add chromedriver.exe to your machine's PATH
 
-### To Run Program ###
+## To Run Program ##
 `$ python logTime.py`
 
 Alex Fennell
