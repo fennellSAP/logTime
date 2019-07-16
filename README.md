@@ -2,9 +2,9 @@
 Alex Fennell
 
 ## Requirements ##
-Python >= 3.0
-selenium >= 3.141.0
-ChromeDriver
+* Python >= 3.0
+* selenium >= 3.141.0
+* ChromeDriver
 
 ### Selenium Install ###
 `$ pip install selenium`
