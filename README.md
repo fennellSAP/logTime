@@ -1,5 +1,4 @@
 # Log Time for SAP Interns #
-Alex Fennell
 
 ## Requirements ##
 * Python >= 3.0
@@ -11,10 +10,10 @@ Alex Fennell
 
 ### ChromeDriver Install ###
 * Go To: http://chromedriver.chromium.org/downloads to download ChromeDriver
-* Add chromedriver.exe to your machine's path
+* Add chromedriver.exe to your machine's PATH
 
 ### To Run Program ###
 `$ python logTime.py`
 
-
+Alex Fennell
 
