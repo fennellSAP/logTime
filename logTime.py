@@ -6,9 +6,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 import datetime
 
-options = Options()
-options.add_argument("--headless")
-driver = webdriver.Chrome(chrome_options=options)
+driver = webdriver.Chrome()
 
 def clickSomething(selector):
 
