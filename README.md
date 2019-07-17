@@ -10,7 +10,7 @@
 
 ## ChromeDriver Install ##
 * Go To: http://chromedriver.chromium.org/downloads to download ChromeDriver
-* Add chromedriver.exe to your machine's PATH
+* Add the downloaded chromedriver.exe file to your machine's PATH
 
 ## To Run Program ##
 `$ python logTime.py`
