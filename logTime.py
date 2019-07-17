@@ -57,10 +57,12 @@ def enterTime():
     findSectionBtn('__filter3-text')
 
     # Wait for popup to go away
-    time.sleep(2)
+    time.sleep(3)
 
     # Click save button
     clickSomething('//*[@id="__jsview1--detailsSaveButton"]')
+
+    print("Time Has Been Entered!")
 
 enterTime()
 
